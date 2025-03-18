@@ -18,9 +18,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // Display default ramen details
     ramenImage.src = "images/gyukotsu.jpg"; 
     ramenName.textContent = "Gyukotsu Ramen";
-    ramenRestaurant.textContent = "Restaurant: Ichiraku";
-    ramenRating.textContent = "Rating: 9/10";
-    ramenComment.textContent = "Comment: Rich broth with deep umami flavor.";
+    ramenRestaurant.textContent = "Ramen House";
+    ramenRating.textContent = "Rating: 8/10";
+    ramenComment.textContent = "Comment: Rich broth with tender beef..";
 });
 
 // Function to display all ramen images in the menu section

@@ -57,34 +57,38 @@ function handleClick(ramen) {
     detailComment.textContent = `Comment: ${ramen.comment}`;
 }
 
-// Function to add a new ramen entry through the submission form
 function addCreateListener() {
     const form = document.getElementById('new-ramen');
-    form.addEventListener('create', (e) => {
+    form.addEventListener('submit', (e) => {
         e.preventDefault(); // Prevent page refresh
+        
 
-        // Create a new ramen object using form inputs
         const newRamen = {
             name: document.getElementById('name').value,
             restaurant: document.getElementById('restaurant').value,
             image: document.getElementById('image').value,
-            rating: document.getElementById('rating').value,
+            rating: Number(document.getElementById('rating').value), // Convert rating to number
             comment: document.getElementById('comment').value
         };
 
-        // Create a new image for the newly added ramen in the menu
+        // Add the new ramen image to the menu
         const img = document.createElement('img');
         img.src = newRamen.image;
         img.alt = newRamen.name;
         img.addEventListener('click', () => handleClick(newRamen));
+
         document.getElementById('ramen-menu').appendChild(img);
 
-        // Reset the form fields for a clean entry
+        // Immediately display the new ramen's details
+        handleClick(newRamen);
+
+        // Reset form fields
         form.reset();
     });
 }
 
-// Main function to initialize the app by displaying existing ramens and adding create functionality
+
+// Main function to initialize the app by displaying existing ramens and adding submit functionality
 function main() {
     displayRamens();
     addCreateListener();
